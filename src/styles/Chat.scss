@@ -7,9 +7,36 @@
 		display: none;
 	}
 	.ChatHeader {
+		display: flex;
+		justify-content: space-between;
+		padding: 20px;
+		border-bottom: 1px solid lightgray;
 		.ChatHeaderLeft {
+			display: flex;
+			align-items: center;
+			h4 {
+				display: flex;
+				text-transform: lowercase;
+				margin-right: 10px;
+				& > .MuiSvgIcon-root {
+					margin-left: 10px;
+					font-size: 18px;
+				}
+			}
 		}
 		.ChatHeaderRight {
+			p {
+				display: flex;
+				align-items: center;
+				font-size: 14px;
+				& > .MuiSvgIcon-root {
+					margin-right: 5px;
+					font-size: 16px;
+				}
+			}
 		}
+	}
+	.ChatBottom {
+		padding-bottom: 200px;
 	}
 }

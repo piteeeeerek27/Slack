@@ -1,0 +1,21 @@
+.SidebarOption {
+	display: flex;
+	padding-left: 3px;
+	cursor: pointer;
+	align-items: center;
+	font-size: 12px;
+	&:hover {
+		opacity: 0.9;
+		background: #340e36;
+	}
+	h3 {
+		font-weight: 500;
+		span {
+			padding: 15px;
+		}
+	}
+	.SidebarOptionChannel {
+		padding: 10px 0;
+		font-weight: 300;
+	}
+}

@@ -34,43 +34,45 @@ const Chat = () => {
 
 	return (
 		<div className="Chat">
-			<>
-				<div className="ChatHeader">
-					<div className="ChatHeaderLeft">
-						<h4>
-							<strong>#{channelName}</strong>
-						</h4>
-						<StarBorderIcon />
+			{channelDetails && channelMsg && (
+				<>
+					<div className="ChatHeader">
+						<div className="ChatHeaderLeft">
+							<h4>
+								<strong>#{channelName}</strong>
+							</h4>
+							<StarBorderIcon />
+						</div>
+						<div className="ChatHeaderRight">
+							<p>
+								<InfoOutlinedIcon /> Details
+							</p>
+						</div>
 					</div>
-					<div className="ChatHeaderRight">
-						<p>
-							<InfoOutlinedIcon /> Details
-						</p>
+					<div>
+						{channelMsg?.docs.map((doc) => {
+							const { message, timestamp, user, userImage } = doc.data();
+
+							return (
+								<Message
+									key={doc.id}
+									message={message}
+									timestamp={timestamp}
+									user={user}
+									userImage={userImage}
+								/>
+							);
+						})}
+						<div className="ChatBottom" ref={chatRef} />
 					</div>
-				</div>
-				<div>
-					{channelMsg?.docs.map((doc) => {
-						const { message, timestamp, user, userImage } = doc.data();
 
-						return (
-							<Message
-								key={doc.id}
-								message={message}
-								timestamp={timestamp}
-								user={user}
-								userImage={userImage}
-							/>
-						);
-					})}
-					<div className="ChatBottom" ref={chatRef} />
-				</div>
-
-				<ChatInput
-					chatRef={chatRef}
-					channelName={channelName}
-					channelId={channelId}
-				/>
-			</>
+					<ChatInput
+						chatRef={chatRef}
+						channelName={channelName}
+						channelId={channelId}
+					/>
+				</>
+			)}
 		</div>
 	);
 };

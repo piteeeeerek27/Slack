@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const counterSlice = createSlice({
+export const userSlice = createSlice({
 	name: "user",
 	initialState: {
 		user: null,
@@ -15,7 +15,8 @@ export const counterSlice = createSlice({
 	},
 });
 
-export const { login, logout } = counterSlice.actions;
-export const selectCount = (state) => state.user.user;
+export const { login, logout } = userSlice.actions;
 
-export default counterSlice.reducer;
+export const selectUser = (state) => state.user.user;
+
+export default userSlice.reducer;
